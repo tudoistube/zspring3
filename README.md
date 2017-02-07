@@ -1,11 +1,11 @@
-#코드로 배우는 스프링 웹프로젝트 책 공부하며 만든 실습예제(~123p) : basic...^_____^.  
+#코드로 배우는 스프링 웹프로젝트 책 공부하며 만든 실습예제.  
 
-#Folder Description  
-##zex00_123p :: Practised sources by 123p ( ~Part01.Ch05.모델2방식과 스프링MVC )  
-##zex00_146p :: Practised sources by 146p ( ~Part01.Ch06.Spring + MyBatis )  
+##Folder Description  
+###zex00_123p :: Practised sources by 123p ( ~Part01.Ch05.모델2방식과 스프링MVC )  
+###zex00_146p :: Practised sources by 146p ( ~Part01.Ch06.Spring + MyBatis )  
 
-#Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
-##Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  
+##Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
+###Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  
 
     
 책 보면서 실습한 소스임.  

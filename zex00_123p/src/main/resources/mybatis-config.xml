@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	92p.http://www.mybatis.org/mybatis-3/getting-started.html
+	mybatis config dtd 키워드로 검색.
+ -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+</configuration>

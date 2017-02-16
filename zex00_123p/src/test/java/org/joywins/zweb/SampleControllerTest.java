@@ -1,5 +1,5 @@
 package org.joywins.zweb;
-//...120p.
+//...120p.WAS 없이 컨트롤러 테스트하기.
 import static org.junit.Assert.*;
 
 import javax.inject.Inject;
@@ -48,7 +48,7 @@ public class SampleControllerTest {
     	
     	//...MockMvc를 사용해서 perform()을 실행하는데, 이때 get(), post()등을
     	//...이용해서 GET/POST방식의 호출을 사용함.
-    	mockMvc.perform(MockMvcRequestBuilders.get("/doA"));
+    	mockMvc.perform(MockMvcRequestBuilders.get("/doC?msg='JoyWins'")); //doC?msg="2Be"
     }
 
 }

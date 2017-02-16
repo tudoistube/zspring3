@@ -15,6 +15,10 @@ public class SampleController3 {
 	
 	//...113p. http://localhost:8080/zweb/doD
 	@RequestMapping("/doD")
+	/*
+	 * ...112p. Model 클래스 : 스프링 MVC 가 기본으로 제공함.
+	 * 	  뷰에 원하는 데이터를 담아서 전달하는 상자 역할. 
+	 */
 	public String doD(Model model){
 		
 		//make sample data

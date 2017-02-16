@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SampleController5 {
 
 	/*
-	 * ...117p.http://localhost:8080/zweb/doJSON
+	 * ...117, 347, 400, 419, 563p.http://localhost:8080/zweb/doJSON
 	 * ...{"name":"zweb.샘플상품","price":30000.0}
 	 * ...Advanced Rest Client 또는 크롬 검사::Network::doJson::Headers에 보면 아래와 같음.
 	 * ...Request URL:http://localhost:8080/zweb/doJSON

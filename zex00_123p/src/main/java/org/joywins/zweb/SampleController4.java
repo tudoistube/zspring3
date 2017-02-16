@@ -12,7 +12,7 @@ public class SampleController4 {
 			LoggerFactory.getLogger(SampleController4.class);
 
 	/*
-	 * ...115p.
+	 * ...115, 210p.
 	 * ...http://localhost:8080/zweb/doE를 입력하면,
 	 * ...http://localhost:8080/zweb/doF로 주소창이 바뀜.
 	 * ...HTTP Status 404 - /zweb/WEB-INF/views/doF.jsp

@@ -15,7 +15,7 @@
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/zbook_ex"></property>
 		-->
 		
-		<!-- ...139p.log4jdbc 설정후 -->	
+		<!-- ...139, 160, 326p.log4jdbc 설정후 -->	
 		<property name="driverClassName" 
 				  value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="url" 
@@ -37,13 +37,13 @@
 	 	<property name="dataSource" ref="dataSource" />	
 	 	
 	 	<!-- 
-	 		92p.mybatis 전용 설정파일을 스프링과 함께 작동하도록 연결함.
+	 		...92p.mybatis 전용 설정파일을 스프링과 함께 작동하도록 연결함.
 	 		/zex00/src/main/resources/mybatis-config.xml
 	 	 -->
 	 	<property name="configLocation" 
 				value="classpath:/mybatis-config.xml"></property>	
 	 	<!-- 
-	 		132p.MyBatis가 동작하면 XML Mapper를 인식하도록 함.
+	 		...132p.MyBatis가 동작하면 XML Mapper를 인식하도록 함.
 	 		/zex00/src/main/resources/mappers/memberMapper.xml
 	 		mapperLocations라는 속성을 추가하고, 작성된 mappers 폴더내의 어떤 폴더에서건
 	 		Mapper.xml로 끝나면 자동으로 인식하도록 함.
@@ -54,7 +54,7 @@
 	</bean>	 
 	
 	<!-- 
-		133p.MyBatis에서 DAO를 이용하는 경우, SqlSessionTemplate라는 것을 이용해서 DAO를 구현함.
+		...133, 176p.MyBatis에서 DAO를 이용하는 경우, SqlSessionTemplate라는 것을 이용해서 DAO를 구현함.
 		mybatis-spring에서 제공하는 SqlSessionTempalte객체는 기본적인 트랜잭션 관리나 쓰레드 처리의
 		안정성등을 보장해주고, 개발자들이 직접 DB 연결, 종료작업하는 것을 줄여줌.
 		SqlSessionFactory를 생성자로 주입함.
@@ -66,7 +66,7 @@
 	</bean>
 		
 	<!-- 
-		스프링이 MemberDAOImpl가 있는 패키지를 스캔해야만 @Repository 어노테이션이 작동해서
+		...136p. 스프링이 MemberDAOImpl가 있는 패키지를 스캔해야만 @Repository 어노테이션이 작동해서
 		스프링의 빈으로 등록함.
 		패키지탐색기에서 MemberDAOImpl.java 파일 아이콘 우측상단에 s글자가 보이면 등록된 것임. 
 	 -->

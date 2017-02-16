@@ -1,3 +1,4 @@
+//...137p.
 package org.joywins.test;
 import javax.inject.Inject;
 
@@ -24,7 +25,7 @@ public class MemberDAOTest {
 		
 	}	
 	
-	//@Test
+	@Test
 	public void testInsertMember()throws Exception{		
 		MemberVO vo = new MemberVO();
 		vo.setUser_id("tuser02");
@@ -35,10 +36,11 @@ public class MemberDAOTest {
 		dao.insertMember(vo);		
 	}	
 
+
 	@Test
 	public void selectMember()throws Exception{		
 		dao.selectMember("tuser02");		
-	}		
+	}
 	
 	@Test
 	public void test() {

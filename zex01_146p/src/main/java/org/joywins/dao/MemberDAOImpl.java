@@ -12,7 +12,7 @@ import org.joywins.domain.MemberVO;
 
 
 /*
- * ...135p.
+ * ...135, 374, 468p.
  * @Repository는 DAO를 스프링에 인식시키기 위해서 주로 사용함.
  * 스프링빈으로 인식시키기 위해 root-context.xml::component-scan base-package 속성을 이용해서 
  * 등록해야함.
@@ -49,6 +49,7 @@ public class MemberDAOImpl implements IF_MemberDAO {
 		sqlSession.insert(namespace+".insertMember", vo);
 	}
 
+	
 	@Override
 	public MemberVO selectMember(String userid) throws Exception {
 		return (MemberVO) sqlSession.selectOne(namespace+".selectMember", userid);

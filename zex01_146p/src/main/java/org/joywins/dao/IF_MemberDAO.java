@@ -13,6 +13,6 @@ public interface IF_MemberDAO {
 	
 	public MemberVO selectMember(String userid)throws Exception;
 	  
-	public MemberVO readWithPW(String userid, String userpw)throws Exception;		
+	public MemberVO readWithPW(String userid, String userpw)throws Exception;
 	
 }

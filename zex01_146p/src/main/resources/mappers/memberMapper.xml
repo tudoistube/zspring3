@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-	131p.http://www.mybatis.org/mybatis-3/getting-started.html
+	...131p.http://www.mybatis.org/mybatis-3/getting-started.html
 	아래쪽 Exploring Mapped SQL Statements 참조.
 	XML Mapper를 작성할 때는 클래스의 패키지와 유사한 용도로, MyBatis내에서 원하는 SQL문을 찾을 수 있는
 	namespace 설정에 가장 신경을 많이 써야 함.
@@ -21,7 +21,7 @@
  --> 
  
 <!-- 
-	패키지익스플로러에서 프로젝트 경로구조와 상관없이 개발자가 mapper태그의 namespace 속성값을
+	...131p.패키지익스플로러에서 프로젝트 경로구조와 상관없이 개발자가 mapper태그의 namespace 속성값을
 	지정한 것이 프로젝트에서 통용되는 경로명으로 인식됨.
 	MyBatis가 인식하도록 root-context.xml에서 등록함.
 --> 
@@ -45,7 +45,9 @@
 	  where user_id = #{user_id}
   </select>  
   
-  
+<!--
+	...145p.파라미터가 2개 이상 전달될 경우, Map 타입의 객체로 파라미터를 사용함. 
+ -->  
   <select id="readWithPW" 
          resultType="org.joywins.domain.MemberVO">
 	  select 

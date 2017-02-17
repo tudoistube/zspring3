@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	131p.http://www.mybatis.org/mybatis-3/getting-started.html
+	아래쪽 Exploring Mapped SQL Statements 참조.
+	XML Mapper를 작성할 때는 클래스의 패키지와 유사한 용도로, MyBatis내에서 원하는 SQL문을 찾을 수 있는
+	namespace 설정에 가장 신경을 많이 써야 함.
+	XML Mapper는 root-context.xml에서 스프링이 인식하도록 등록함.
+	/zex00/src/main/webapp/WEB-INF/spring/root-context.xml
+ -->
+ <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+ <!-- 
+	MyBatis는 기본적으로 PreparedStatement를 이용해서 처리됨.
+	개발자가 PreparedStatement에 들어가는 파라미터를 사용할 때는 '#{}'기호를 이용해서 처리함.
+	'#{}'의 규칙.
+		1. 파라미터가 여러 속성을 가진 객체인 경우 '#{num}'은 getNum() or setNum()을 의미함.
+		2. 파라미터가 하나이고, 기본자료형이나 문자열인 경우 값이 그대로 전달됨.
+		3. 파라미터가 Map타입인 경우 '#{num}'은 Map객체의 키값이 'num'인 값을 찾는다.
+-->  
+
+<!-- 
+	패키지익스플로러에서 프로젝트 경로구조와 상관없이 개발자가 mapper태그의 namespace 속성값을
+	지정한 것이 프로젝트에서 통용되는 경로명으로 인식됨.
+-->
+<mapper namespace="org.joywins.mapper.BoardMapper">
+
+<!-- 
+	식별의 용이함을 위해 BoardMapper.xml의 각 SQL id속성값은 
+	org.joywins.dao.IF_BoardDAO와 동일하게 할 것. 
+-->
+<insert id="insert">
+	insert into ztbl_board (title, content, writer) 
+	values(#{title},#{content}, #{writer})
+</insert>
+
+<!--
+	183p.mybatis-config.xml::typeAlias태그를 사용하면 boardMapper.xml에서 
+	매번 parameterType, resultType을 패키지까지 포함된 클래스명을 작성하는 번거로움을 덜어줌. 
+-->
+<!-- mybatis-config.xml::typeAlias 적용전
+ <select id="read" resultType="org.joywins.domain.BoardVO">
+ -->
+<!-- mybatis-config.xml::typeAlias 적용후 --> 
+<select id="read" resultType="BoardVO"> 
+	 select 
+	   bno, title, content, writer, regdate, view_count 
+	 from 
+	   ztbl_board 
+	 where bno = #{bno}
+ </select>
+
+ <update id="update">
+	 update ztbl_board set title =#{title}, content =#{content} 
+	 where bno = #{bno}
+ </update>
+
+ <delete id="delete">
+ 	delete from ztbl_board where bno = #{bno}
+ </delete>
+    
+ <select id="listAll" resultType="org.joywins.domain.BoardVO">
+	 <![CDATA[
+	 select 
+	   bno, title, content, writer, regdate, view_count 
+	 from 
+	   ztbl_board 
+	 where bno > 0 
+	 order by bno desc, regdate desc
+	 ]]>  
+ </select>    
+  
+</mapper>
+

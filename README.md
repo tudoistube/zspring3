@@ -7,6 +7,7 @@
 ###zex00_223p :: Practised sources by 223p ( ~Part02.Ch03.5.게시판 추가, 목록, 읽기 기능까지 )  
 ###zex00_230p :: Practised sources by 230p ( ~Part02.Ch03.6.게시판 삭제, 수정 기능까지 )  
 ###zex00_288p :: Practised sources by 288p ( ~Part02.Ch09.6.1.게시판 PageMaker 를 이용한 페이징까지 )  
+###zex00_294p :: Practised sources by 294p ( ~Part02.Ch09.7.2.게시판 PageMaker 를 이용한 페이징, 목록복귀까지 )  
 
 ##Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
 ###Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  

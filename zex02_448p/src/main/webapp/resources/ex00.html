@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+	<title>handle bars ex00 ...429p</title>
+</head>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<div id="displayDiv">
+
+</div>
+
+<!-- 
+	...430p. var source는 적용될 HTML코드이고, 다음 라인에서 이를 compile이라는 기능을 이용해서
+	...미리 처리하고, 이를 template으로 활용함.
+	...handlebar의 경우 템플릿에서 대체되야 하는 내용은 '{{}}'문법을 이용해서 처리함.
+	...var data에는 실제 데이터가 구성되있고, template(data)를 이용해서 처리하면 최종HTML코드가
+	...완성되고, 이를 $('#displayDiv')에 반영함.
+	...http://localhost:8080/z2/resources/ex00.html
+ -->
+<script>
+    var source = "<h1><p>{{name}}</p> <p>{{userid}}</p> <p>{{addr}}</p></h1>";
+    var template = Handlebars.compile(source);
+    var data  = {name:"JoyWins", userid:"2DoIs2Be", addr:"Cheer up!!!"};
+
+    $("#displayDiv").html(template(data));
+
+</script>
+
+</body>
+</html>

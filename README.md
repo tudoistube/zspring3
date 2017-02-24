@@ -13,6 +13,7 @@
 ###zex02_423p :: Practised sources by 423p ( ~Part03.Ch04.5.Ajax 호출과 RestController 를 통한 댓글CRUD Test )  
 ###zex02_448p :: Practised sources by 448p ( ~Part03.Ch05.7.Handlebars 를 사용한 게시글 댓글 페이징과 모달창을 이용한 CUD 처리 )  
 ###zex02_500p :: Practised sources by 500p ( ~Part04.Ch04.5.AOP and Transaction )  
+###zex02_514p :: Practised sources by 500p ( ~Part04.Ch05.3.게시판에 AOP and Transaction 적용하여 조회수, 댓글수 출력 )  
 
 ##Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
 ###Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  

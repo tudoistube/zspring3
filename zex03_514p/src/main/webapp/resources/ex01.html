@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+	<title>handle bars ex01 ...431p</title>
+</head>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<div id="displayDiv">
+
+</div>
+
+<!-- 
+	...430p. handlebars가 사용하는 HTML의 템플릿 코드는 별도의 태그로 작성하는 것이 가능함.
+	...id='template'은 HTML로 작성된 템플릿 코드임.
+	...별도의 script 코드로 작성하면 필요할때 재사용할 수 있는 장점이 있음.
+	...http://localhost:8080/z2/resources/ex01.html
+ -->
+<script id="template" type="text/x-handlebars-template">
+    <span> {{ name }}</span>
+    <div>
+        <span> {{ userid }}</span>
+        <span> {{ addr }}</span>
+    </div>
+</script>
+<script>
+    var source = $("#template").html();
+    var template = Handlebars.compile(source);
+    var data  = {name:"JoyWins", userid:"2DoIs2Be", addr:"Cheer Up!!!"};
+
+    $("#displayDiv").html(template(data));
+
+</script>
+
+</body>
+</html>

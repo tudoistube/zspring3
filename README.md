@@ -17,6 +17,7 @@
 ###zex04_545p :: Practised sources by 545p ( ~Part05.Ch01.4.FileUpload 를 위한 FormData 를 이용한 Ajax 호출 )  
 ###zex04_575p :: Practised sources by 575p ( ~Part05.Ch04.2.FileUpload, 업로드한 파일 저장, JSP 화면에 표시하고 다운로드하기 )  
 ###zex04_581p :: Practised sources by 581p ( ~Part05.Ch05.2.FileUpload, 업로드후 파일 삭제, JSP 화면에서 삭제한 파일 제거하기 )  
+###zex04_Board_596p :: Practised sources by 596p ( ~Part05.Ch06.3.게시판 FileUpload 처리하기 )  
 
 ##Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
 ###Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  

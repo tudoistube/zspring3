@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ...465p. -->
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joywins.mapper.MsgMapper">
+
+	<insert id="insert">
+		insert into ZTBL_MSG (RECEIVER_ID,  SENDER_ID,  MESSAGE)
+		values (#{receiver_id}, #{sender_id}, #{message});	
+	</insert>
+
+
+	<select id="read" resultType="MsgVO">
+		select * from ZTBL_MSG where mid = #{mid}
+	</select>
+
+	<update id="updateOpenDate">
+		update ZTBL_MSG set OPEN_DATE = now() where mid= #{mid}
+	</update>
+
+</mapper>

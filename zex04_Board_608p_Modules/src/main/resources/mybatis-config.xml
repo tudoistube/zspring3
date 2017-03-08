@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	92p.http://www.mybatis.org/mybatis-3/getting-started.html
+	mybatis config dtd 키워드로 검색.
+ -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+<!--
+	183p.mybatis-config.xml::typeAlias태그를 사용하면 boardMapper.xml에서 
+	매번 parameterType, resultType을 패키지까지 포함된 클래스명을 작성하는 번거로움을 덜어줌. 
+-->
+  <typeAliases>
+    <package name="org.joywins.domain"/>    
+  </typeAliases>
+  
+</configuration>

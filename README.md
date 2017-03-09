@@ -21,7 +21,8 @@
 ###zex04_Board_605p :: Practised sources by 605p ( ~Part05.Ch07.2.게시판 조회화면에서 첨부파일 보기 또는 다운로드 처리하기 )  
 ###zex04_Board_608p :: Practised sources by 608p ( ~Part05.Ch08.1.2.게시판 수정화면 및 첨부파일 처리하기 )  
 ###zex04_Board_608p_Modules :: Practised sources by 608p ( ~Part05.Ch08.1.2.이미지 드랍 및 클릭팝업, 첨부이미지목록 관련 모듈화 )  
-###zex04_book_612p :: Practised sources by 612p ( ~Part05.Ch08.게시판 수정 및 삭제화면 및 첨부파일 )  
+###zex04_Board_612p_Modules :: Practised sources by 612p ( ~Part05.Ch08.2.게시판 글 및 첨부파일 삭제처리하기 )  
+###zex04_book_612p :: Practised sources by 612p ( ~Part05.Ch08.게시판 수정 및 삭제화면 및 첨부파일, 교재소스 )  
 
 ##Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
 ###Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  

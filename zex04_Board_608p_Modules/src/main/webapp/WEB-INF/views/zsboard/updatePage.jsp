@@ -38,6 +38,13 @@
 
 
 <!-- ...433p.Mustach를 기반으로 작성된 handlebars.js 이용. -->
+<!-- 
+	...591p.첨부파일을 보여주는 HTML코드가 복잡하므로 handlebars를 이용하여
+	...첨부된 각각의 파일을 보여주는 화면을 템플릿으로 작성함.  
+	...li태그를 구성할 때 'imgsrc'속성을 보여주는데, 'imgsrc'는 이미지 파일인 경우
+	...썸네일 파일의 경로이고, 일반 파일인 경우는 단순히 파일모양의 이미지(file.png)를
+	...보여주는 경로임.
+-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <!-- 
@@ -46,6 +53,7 @@
 	...getFileInfo()처리를 위한 링크추가.
  -->
 <script type="text/javascript" src="../resources/zjs/upload.js"></script>
+
 
 
 <!-- Main content -->

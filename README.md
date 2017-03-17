@@ -25,7 +25,8 @@
 ###zex04_book_612p :: Practised sources by 612p ( ~Part05.Ch08.게시판 수정 및 삭제화면 및 첨부파일, 교재소스 )  
 ###zex05_Board_656p :: Practised sources by 656p ( ~Part06.Ch03. 인터셉터를 이용한 로그인체크와 게시판 접근권한 처리하기 )  
 ###zex05_Board_675p :: Practised sources by 675p ( ~Part06.Ch04.5. 쿠키를 이용한 자동로그인과 로그아웃 처리하기 )  
-###zex07_appendix_694p :: Practised sources by 675p ( ~Appendix01.MyBatis Mapper Interface, @Param, XML, Dynamic SQL, Selectprovider )  
+###zex07_appendix_694p :: Practised sources by 694p ( ~Appendix01.MyBatis Mapper Interface, @Param, XML, Dynamic SQL, Selectprovider )  
+###zex07_appendix_734p :: Practised sources by 734p ( ~Appendix02.Springboot, JDBC, MyBatis, JSP, UTF-8, Filter, Interceptor )  
 
 ##Reference Document : Self Summary on [Shared_ZSpring3](https://drive.google.com/open?id=120-H8sJcM8U0GssCbbTsJKVqdB0cTTYp1py76At3jHs "Example Sources by tudoistube@gmail" )  
 ###Practised sources from a book ['코드로 배우는 스프링 웹프로젝트 중 Part01.Ch5.모델2방식과 스프링MVC 까지 반영한 실습소스'](http://book.naver.com/bookdb/book_detail.nhn?bid=9425458 "a book on Springframework3 and REST Ajax, and I will convert this source into a new one with React.js" ) and the authors' cafe : [Cafe run by Author of this book](http://cafe.naver.com/gugucoding "Cafe run by Author of this book" )  

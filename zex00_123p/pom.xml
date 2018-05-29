@@ -106,6 +106,8 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>		
+			Caused by: java.lang.ClassNotFoundException: javax.servlet.SessionCookieConfig
+			https://stackoverflow.com/questions/21561432/failed-to-load-applicationcontext-during-spring-unit-test					
 			스프링3.2부터는 jUnit만을 사용해서 컨트롤러를 테스트할 수 있는데,
 			spring-test모듈을 사용할 때 가능하면 WAS의 Servlet스펙 버전을 일치시켜서 테스트할 것.
 			테스트코드작성은 test폴더를 이용해서 작업하고, WAS를 실행하지 않고 컨트롤러를

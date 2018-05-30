@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ...632p. -->
+<mapper namespace="org.joywins.mapper.loginUserMapper">
+
+  <select id="selectUser" resultType="MsgUserVO">  
+  	select UID, UPW, UNAME 
+  		from ZTBL_MSG_USER 
+  		where UID = #{uid} 
+  		and UPW = #{upw}  
+  </select>
+
+</mapper>

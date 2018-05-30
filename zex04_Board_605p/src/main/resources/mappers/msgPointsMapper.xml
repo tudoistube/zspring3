@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ...468p.추가 -->
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joywins.mapper.MsgPointMapper">
+
+	<insert id="insert">
+		insert into ZTBL_MSG_POINTS (uid,  mid, upoint, activity, act_date)
+		values (#{uid}, #{mid}, #{upoint}, #{activity}, now())
+	</insert>
+	
+	<select id="read" resultType="MsgVO">
+		select * 
+		  from ZTBL_MSG_POINTS 
+		 where uid = #{uid}
+		   and mid = #{mid}
+	</select>
+	
+	<update id="update">
+		update ZTBL_MSG_POINTS 
+		   set UPOINT = #{UPOINT},
+		       ACTIVITY = #{ACTIVITY},
+		       ACT_DATE = now()
+		 where uid = #{uid}
+		   and mid = #{mid}
+	</update>
+
+</mapper>

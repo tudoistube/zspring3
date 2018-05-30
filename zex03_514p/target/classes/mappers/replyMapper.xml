@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ...373p. -->
+
+<!-- 
+	...131p.http://www.mybatis.org/mybatis-3/getting-started.html 아래쪽 Exploring 
+	Mapped SQL Statements 참조. XML Mapper를 작성할 때는 클래스의 패키지와 유사한 용도로, MyBatis내에서 
+	원하는 SQL문을 찾을 수 있는 namespace 설정에 가장 신경을 많이 써야 함. 
+	XML Mapper는 root-context.xml에서 스프링이 인식하도록 등록함. 
+	/zex00/src/main/webapp/WEB-INF/spring/root-context.xml 
+-->
+ <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joywins.mapper.ReplyMapper">
+
+	<select id="selectReplies" resultType="ReplyVO">
+		select
+		*
+		from
+		ztbl_reply
+		where bno =#{bno}
+		order by rno desc
+	</select>
+
+	<insert id="insertReply">
+		insert into ztbl_reply (bno, replytext, replyer)
+		values (#{bno},#{replytext},#{replyer})
+	</insert>
+
+	<update id="updateReply">
+		update ztbl_reply 
+		set replytext = #{replytext},
+			updatedate = now()
+		where rno = #{rno}
+	</update>
+
+	<delete id="deleteReply">
+		delete from ztbl_reply 
+		 where rno =#{rno}
+	</delete>
+
+	<!-- ...390p. -->
+	<select id="selectPageReplies" resultType="ReplyVO">
+		select
+		*
+		from
+		ztbl_reply
+		where
+		bno = #{bno}
+		order by rno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="countReplies" resultType="int">
+		select count(bno) from ztbl_reply where bno =#{bno}
+	</select>
+
+	<!-- ...505p. -->
+	<select id="getBno" resultType="int">
+		select bno 
+			from ztbl_reply 
+			where rno = #{rno}
+	</select>
+
+
+</mapper>  

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.mapper.MessageMapper">
+
+	<insert id="create">
+		insert into tbl_message (targetid, sender,message)
+		values (#{targetid}, #{sender}, #{message})
+	</insert>
+
+
+	<select id="readMessage" resultType="MessageVO">
+		select * from tbl_message where mid = #{mid}
+	</select>
+
+	<update id="updateState">
+		update tbl_message set opendate = now() where mid= #{mid}
+	</update>
+
+</mapper>
+
+

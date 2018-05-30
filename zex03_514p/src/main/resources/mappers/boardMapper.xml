@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ...178p. -->
+
+<!-- 131p.http://www.mybatis.org/mybatis-3/getting-started.html 아래쪽 Exploring 
+	Mapped SQL Statements 참조. XML Mapper를 작성할 때는 클래스의 패키지와 유사한 용도로, MyBatis내에서 
+	원하는 SQL문을 찾을 수 있는 namespace 설정에 가장 신경을 많이 써야 함. XML Mapper는 root-context.xml에서 
+	스프링이 인식하도록 등록함. /zex00/src/main/webapp/WEB-INF/spring/root-context.xml -->
+ <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--
+	MyBatis는 기본적으로 PreparedStatement를 이용해서 처리됨. 
+	개발자가 PreparedStatement에 들어가는 파라미터를 사용할 때는 '#{}'기호를 이용해서 처리함. 
+	'#{}'의 규칙. 
+	1. 파라미터가 여러 속성을 가진 객체인 경우, '#{num}'은 getNum() or setNum()을 의미함. 
+	2. 파라미터가 하나이고, 기본자료형이나 문자열인 경우 값이 그대로 전달됨. 
+	3. 파라미터가 Map타입인 경우 '#{num}'은 Map객체의 키값이 'num'인 값을 찾는다. 
+-->
+
+<!-- 
+	패키지익스플로러에서 프로젝트 경로구조와 상관없이 개발자가 mapper태그의 namespace 속성값을 
+    지정한 것이 프로젝트에서 통용되는 경로명으로 인식됨. 
+-->
+<mapper namespace="org.joywins.mapper.BoardMapper">
+
+	<!-- 식별의 용이함을 위해 BoardMapper.xml의 각 SQL id속성값은 org.joywins.dao.IF_BoardDAO와 
+		동일하게 할 것. -->
+	<insert id="insert">
+		insert into ztbl_board (title, content, writer)
+		values(#{title},#{content}, #{writer})
+	</insert>
+
+	<!-- 183p.mybatis-config.xml::typeAlias태그를 사용하면 boardMapper.xml에서 매번 parameterType, 
+		resultType을 패키지까지 포함된 클래스명을 작성하는 번거로움을 덜어줌. -->
+	<!-- mybatis-config.xml::typeAlias 적용전 <select id="read" resultType="org.joywins.domain.BoardVO"> -->
+	<!-- mybatis-config.xml::typeAlias 적용후 -->
+	<select id="read" resultType="BoardVO">
+		select
+		bno, title, content, writer,
+		regdate, view_count, reply_count
+		from
+		ztbl_board
+		where bno = #{bno}
+	</select>
+
+	<update id="update">
+		update ztbl_board 
+		set title =#{title}, content =#{content}
+		where bno = #{bno}
+	</update>
+
+	<delete id="delete">
+		delete from ztbl_board where bno = #{bno}
+	</delete>
+
+	<!-- ...503p. 필드 reply_count 추가. -->
+	<select id="listAll" resultType="org.joywins.domain.BoardVO">
+	 <![CDATA[
+	 select 
+	   bno, title, content, writer, regdate, view_count, reply_count 
+	 from 
+	   ztbl_board 
+	 where bno > 0 
+	 order by bno desc, regdate desc
+	 ]]>
+	</select>
+
+	<!-- 
+		...250p.1페이지를 원할 경우 : limit 0, 10. 
+			  2페이지를 원할 경우 : limit 10, 10. 
+			  3페이지를 원할 경우 : limit 20, 10. 
+	-->
+	<select id="listPage" resultType="BoardVO">
+	<![CDATA[
+	select 
+	  bno, title, content, writer, regdate, view_count, reply_count 
+	from 
+	  ztbl_board 
+	where bno > 0 
+	order by bno desc, regdate desc
+	limit #{page}, 10
+	]]>
+	</select>
+
+	<!-- ...256p -->
+	<select id="listCriteria" resultType="BoardVO">
+	 <![CDATA[
+	 select 
+	   bno, title, content, writer, regdate, view_count, reply_count 
+	 from 
+	   ztbl_board 
+	 where bno > 0 
+	 order by bno desc, regdate desc
+	 limit #{pageStart}, #{perPageNum}
+	 ]]>
+	</select>
+
+	<!-- ...279p -->
+	<select id="countBno" resultType="int">
+	 <![CDATA[
+	 select 
+	   count(bno) 
+	 from 
+	   ztbl_board 
+	 where 
+	   bno > 0 
+	 ]]>
+	</select>
+
+	<!-- 
+		...324p.동적SQL 구현 전에 먼저 확실히 동작하는 SQL문을 실행후 동적SQL 추가할 것. 
+	->
+	<select id="listSearch" resultType="BoardVO">
+		<![CDATA[  
+		  select * 
+		  from ztbl_board 
+		  where bno > 0 
+		  ]]>
+
+	<!- 
+		...327p.동적SQL 추가.BoardDAOTest.testDynamic1()실행해서 테스트할 것. 
+		...INFO : jdbc.sqltiming - select * from ztbl_board where bno > 0 and title like CONCAT('%', '글', '%') order by bno desc 
+	->
+
+		 <if test="searchType != null" > 
+		   <if test="searchType == 't'.toString()">
+		     and title like CONCAT('%', #{keyword}, '%')
+		   </if>
+		   <if test="searchType == 'c'.toString()">
+		     and content like CONCAT('%', #{keyword}, '%')
+		   </if>
+		   <if test="searchType == 'w'.toString()">
+		     and writer like CONCAT('%', #{keyword}, '%')
+		   </if>     
+		   <if test="searchType == 'tc'.toString()">
+		     and ( title like CONCAT('%', #{keyword}, '%') OR content like CONCAT('%', #{keyword}, '%'))
+		   </if>        
+		   <if test="searchType == 'cw'.toString()">
+		     and ( content like CONCAT('%', #{keyword}, '%') OR writer like CONCAT('%', #{keyword}, '%'))
+		   </if>        
+		   <if test="searchType == 'tcw'.toString()">
+		     and (   title like CONCAT('%', #{keyword}, '%') 
+		           OR 
+		             content like CONCAT('%', #{keyword}, '%') 
+		           OR 
+		             writer like CONCAT('%', #{keyword}, '%'))
+		   </if>              
+		 </if>  
+		  
+		<![CDATA[
+		  order by bno desc
+		  limit #{pageStart}, #{perPageNum}
+		]]>  
+	</select>
+	  
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[  
+		  select count(bno) 
+		  from ztbl_board 
+		  where bno > 0 
+		]]>
+	</select>  
+	-->
+
+	<!-- 
+		...329p. sql태그를 이용 동일한 SQL문을 재사용할 수 있게 하고, 
+		...include태그로 사용함.
+	 -->
+	<sql id="sqlWhere">
+	 <if test="searchType != null" > 
+	   <if test="searchType == 't'.toString()">
+	     and title like CONCAT('%', #{keyword}, '%')
+	   </if>
+	   <if test="searchType == 'c'.toString()">
+	     and content like CONCAT('%', #{keyword}, '%')
+	   </if>
+	   <if test="searchType == 'w'.toString()">
+	     and writer like CONCAT('%', #{keyword}, '%')
+	   </if>     
+	   <if test="searchType == 'tc'.toString()">
+	     and ( title like CONCAT('%', #{keyword}, '%') 
+	     OR content like CONCAT('%', #{keyword}, '%'))
+	   </if>        
+	   <if test="searchType == 'cw'.toString()">
+	     and ( content like CONCAT('%', #{keyword}, '%') 
+	     OR writer like CONCAT('%', #{keyword}, '%'))
+	   </if>        
+	   <if test="searchType == 'tcw'.toString()">
+	     and (   title like CONCAT('%', #{keyword}, '%') 
+	           OR 
+	             content like CONCAT('%', #{keyword}, '%') 
+	           OR 
+	             writer like CONCAT('%', #{keyword}, '%'))
+	   </if>              
+	 </if>  
+	</sql>
+	 
+	 <!-- ...330p. include태그로 sql태그를 재사용함. -->
+	<select id="listSearch" resultType="BoardVO">
+		<![CDATA[  
+		  select * 
+		  from ztbl_board 
+		  where bno > 0 
+		]]>  
+	
+		<include refid="sqlWhere"></include>
+	  
+		<![CDATA[    
+		  order by bno desc
+		  limit #{pageStart}, #{perPageNum}
+		]]>  
+	</select>
+	  
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[  
+		  select count(bno) 
+		  from ztbl_board 
+		  where bno > 0 
+		]]>
+		
+	  	<include refid="sqlWhere"></include>
+	 
+	</select>  
+	  	 
+
+	<!-- ...504p. -->
+	<update id="updateReplyCount">
+	  update ztbl_board 
+	  	 set reply_count = reply_count + #{amount} 
+	  	 where bno = #{bno}
+	</update>
+
+	<!-- ...511p. -->
+	<update id="updateViewCount">
+	  update ztbl_board 
+	  	 set view_count = view_count +1 
+	  	 where bno = #{bno}
+	</update>
+
+</mapper>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	...718p, 689p.Mapper 인터페이스를 이용하는 또 다른 장점은 기존의 XML 을
+	   그대로 사용할 수 있음.
+	   이때 두가지 규칙이 있음.
+	   1. Mapper 인터페이스 이름과 XML Mapper 의 네임스페이스를 반드시
+		  일치시킬 것.
+	   2. Mapper 인터페이스의 메서드 이름과 XML 의 id 를 반드시 일치시킴.
+	 
+	...691p.root-context.xml :: sqlSessionFactory 에 매퍼 xml 파일의 경로를 인식하게 함.
+-->
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.joywins.dao.IF_MsgUserMapper">
+
+	<select id="login" resultType="org.joywins.domain.MsgUserVO">
+		select *
+		  from ztbl_msg_user 
+	     where uid = #{uid}
+	       and upw = #{upw}
+	</select>
+
+</mapper>

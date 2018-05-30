@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joywins.mapper.loginUserMapper">
+
+	<!-- ...632p. -->
+	<select id="selectUser" resultType="MsgUserVO">  
+		select UID, UPW, UNAME 
+			from ZTBL_MSG_USER 
+			where UID = #{uid} 
+			and UPW = #{upw}  
+	</select>
+  
+	<!-- ...664p. -->
+	<update id="keepLogin" >
+		update ZTBL_MSG_USER 
+			set SESSION_KEY = #{sessionId}, SESSION_LIMIT = #{next} where UID = #{uid}
+	</update>
+	
+	<select id="checkLoginBefore" resultType="MsgUserVO">
+		select * 
+			from ZTBL_MSG_USER where SESSION_KEY = #{value}  and SESSION_LIMIT > now()
+	</select>	
+
+  
+
+</mapper>
